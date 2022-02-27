@@ -17,7 +17,7 @@ Feature: Compra de Tickets de PeruRail
     Examples: 
       | tipoTicket | destino | ruta         | tren                             | fechaSalida | tipoCabina   | nroCabinas | grupoAdultos | grupoNinos | medioPago |
       | One Way    | Cusco   | Puno > Cusco | Andean Explorer, A Belmond Train | 18-05-2022  | SUITE CABINS | 1 CABIN    |            1 |          0 | visa      |
-      | One Way    | Cusco   | Puno > Cusco | Andean Explorer, A Belmond Train | 21-05-2022  | SUITE CABINS | 2 CABINS   | 1-1          | 0-1        | visa      |
+      | One Way    | Cusco   | Puno > Cusco | Andean Explorer, A Belmond Train | 18-05-2022  | SUITE CABINS | 2 CABINS   | 1-1          | 0-1        | visa      |
 
   @CompraTicketTrenExpedition @regresion
   Scenario Outline: 2 - Validar compra de ticket con servico de tren Expedition
