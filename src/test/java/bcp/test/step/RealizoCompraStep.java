@@ -27,11 +27,7 @@ public class RealizoCompraStep {
 		for(int i=0; i<valorMostrado.length; i++) {
 			System.out.println("Valor " + i + " " + valorMostrado[i]);
 		}
-		
 		String montoTotal=valorMostrado[3];
-		System.out.println("Monto Mostrado " + Double.parseDouble(montoTotal.replace(",", "")));
-		
-//		Assert.assertEquals(valorMostrado[1], tren);
 		Assert.assertEquals(Double.parseDouble(montoTotal.replace(",", "")), montoEsperado);
 	}
 
@@ -44,7 +40,7 @@ public class RealizoCompraStep {
 	@Step
 	public void compararMonto(int v_nroAdultosExpedition, int v_nroNinosExpedition) {
 		double montoEsperado[] = generalUtil.calcularMontoExpedite(v_nroAdultosExpedition, v_nroNinosExpedition, SeleccionTrenJourneyStep.montoIda, SeleccionTrenJourneyStep.montoVuelta);
-		double montoMostrado[] = appPago.obtenerMontosExpedite();
+		double montoMostrado[] = appPago.obtenerSubtotalesExpedition();
 		
 		Assert.assertEquals(montoEsperado[0], montoMostrado[0]);
 		Assert.assertEquals(montoEsperado[1], montoMostrado[1]);

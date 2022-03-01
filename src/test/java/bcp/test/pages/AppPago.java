@@ -1,7 +1,8 @@
 package bcp.test.pages;
 
-import javax.swing.JOptionPane;
+import java.util.List;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -10,6 +11,7 @@ import bcp.test.util.GeneralUtil;
 import bcp.test.util.PageObjectUtil;
 import bcp.test.xpath.XpathPago;
 import net.serenitybdd.core.Serenity;
+import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.pages.PageObject;
 
 public class AppPago extends PageObject {
@@ -86,9 +88,21 @@ public class AppPago extends PageObject {
 		getDriver().switchTo().defaultContent();
 	}
 
-	public double[] obtenerMontosExpedite() {
+	public double[] obtenerSubtotalesExpedition() {
 		pageObjectUtil.seleniumClick(getDriver(), xpathPago.btnCarritoCompra, 0);
-		double[] montos = generalUtil.obtenerMontosExpedite(getDriver());
+		
+		int contador = 0;
+        double[] montos = new double[2];
+        try {
+            List<WebElement> elements = getDriver().findElements(By.xpath("//*[@src='/ecommerce/www/img/carrito.png'] /following :: div[2]//*[contains(text(),'Total: ')]"));
+            for (WebElement row : elements) {
+            	montos[contador]= Double.parseDouble(row.getText().replace("\n", "").substring(14,19));
+            	contador++;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+		
 		return montos;
 	}
 

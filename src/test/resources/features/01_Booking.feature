@@ -33,8 +33,8 @@ Feature: Compra de Tickets de PeruRail
 
     Examples: 
       | tipoTicket | destino      | ruta                 | fechaSalida | fechaRetorno | nroAdultos | nroNinos | trenSalida    | trenRetorno  | medioPago |
-      #| Round trip | Machu Picchu | Cusco > Machu Picchu | 18-05-2022  | 18-05-2022   |          1 |        0 | Expedition 33 | Vistadome 34 | visa      |
-      | Round trip | Machu Picchu | Cusco > Machu Picchu | 18-05-2022  | 18-05-2022   |          2 |        2 | Expedition 33 | Vistadome 34 | visa      |
+      | Round trip | Machu Picchu | Cusco > Machu Picchu | 18-05-2022  | 18-05-2022   |          1 |        0 | Expedition 33 | Vistadome 34 | visa      |
+      #| Round trip | Machu Picchu | Cusco > Machu Picchu | 18-05-2022  | 18-05-2022   |          2 |        2 | Expedition 33 | Vistadome 34 | visa      |
 
   @ValidarNroMaximoPasajerosExpedition @regresion
   Scenario Outline: 3 - Validar mensaje de error al tratar de registrar mas de 9 pasajeros vía Expedition
