@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 
-@CucumberOptions(features = { "src/test/resources/features/" }, tags = { "@CompraTicketTrenBelmond" }, glue = {
+@CucumberOptions(features = { "src/test/resources/features/" }, tags = { "@ValidarNroMaximoPasajerosExpedition" }, glue = {
 "bcp" }, plugin = { "pretty", "html:target/serenity-reports/serenity-html-report",
 		"json:target/serenity-reports/cucumber_report.json", "rerun:target/serenity-reports/rerun.txt" })
 public class ParallelIETest extends BrowserStackSerenityTest {

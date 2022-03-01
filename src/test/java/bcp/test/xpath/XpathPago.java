@@ -32,6 +32,7 @@ public class XpathPago {
     public final String rbnAceptTermiCondici="//input[@name='tipo-manera']";
     public final String chkAceptarTermExp="//input[@name='terms']";
     public final String btnIngresarTarjeta="//input[@value='Enter your card number']";
+    public final String btnCarritoCompra="//*[@id='compra']/a/div[@class='logo-tren-normal']";
     public final String btnPagar="//input[@value='PAY']";
     public final String chkAceptarEntenExp="//input[@name='termsBimodal']";
     

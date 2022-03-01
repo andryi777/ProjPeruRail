@@ -1,5 +1,7 @@
 package bcp.test.step;
 
+import javax.swing.JOptionPane;
+
 import bcp.test.pages.AppCabinasBelmond;
 import bcp.test.util.VariablesUtil;
 import net.thucydides.core.annotations.Step;
@@ -20,18 +22,19 @@ public class SeleccionCabinasBelmondStep {
 		String[] nroAdultosxCabina=grupoAdultos.split("-");
 		String[] nroNinosxCabina=grupoNinos.split("-");
 		
-		for(int i=0; i<nroAdultosxCabina.length; i++) {
-			if(nroAdultosxCabina[i].compareTo("0")!=0)
-				appCabinasBelmond.seleccionarNroPasajeros(tipoCabina, nroCabinas, nroAdultosxCabina[i], 1);
+		for(int i=0; i<nroAdultosxCabina.length; i++) {			
+			appCabinasBelmond.seleccionarNroPasajeros(tipoCabina, nroCabinas, nroAdultosxCabina[i], 1);//1 - Adulto
 		}
 		
 		for(int i=0; i<nroNinosxCabina.length; i++) {
-			if(nroNinosxCabina[i].compareTo("0")!=0)
-				appCabinasBelmond.seleccionarNroPasajeros(tipoCabina, nroCabinas, nroNinosxCabina[i], 2);
-
-		}
-		
+			appCabinasBelmond.seleccionarNroPasajeros(tipoCabina, nroCabinas, nroNinosxCabina[i], 2);//2 - Niño
+		}		
 		appCabinasBelmond.seleccionarContinuar();
+	}
+
+	@Step
+	public String getMensajeMin1Adulto() {
+		return appCabinasBelmond.mensajeValidacion1Adulto();
 	}
 
 

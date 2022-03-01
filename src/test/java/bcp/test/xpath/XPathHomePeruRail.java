@@ -25,7 +25,6 @@ public class XPathHomePeruRail {
 
 	public String rbnTipoViaje(String tipoViaje) {
     	final String rbnTipoViaje="//label[text()='"+tipoViaje+"']//span";
-    	System.out.println(rbnTipoViaje);
 		return rbnTipoViaje;
     }
 	

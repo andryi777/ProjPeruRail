@@ -109,25 +109,6 @@ public class GeneralUtil {
         return cadena.replaceAll("\\s", "");
     }
 
-    public String anyItem(String[] listaAsegurados, String nombre) {
-        String[] aseguradosExcluidos = nombre.split(";");
-        List<String> aseguradosActivos = new ArrayList<String>();
-
-        for (int i = 0; i < listaAsegurados.length; i++) {
-            for (int j = 0; j < aseguradosExcluidos.length; j++) {
-                if (listaAsegurados[i].trim().equals(aseguradosExcluidos[j].trim())) {
-                    System.out.println("Asegurados Excluido: " + aseguradosExcluidos[j].trim());
-                } else {
-                    aseguradosActivos.add(listaAsegurados[i]);
-                }
-            }
-        }
-
-        int randomIndex = (int) (Math.random() * aseguradosActivos.size());
-
-        return aseguradosActivos.get(randomIndex).trim();
-    }
-
     public String fechaMesAnioActual(String formato) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(formato);
 
@@ -357,12 +338,10 @@ public class GeneralUtil {
     	for(int i=0; i<pasajero.length; i++) {
     		totalPasajeros=Integer.parseInt(pasajero[i]) + totalPasajeros;
     	}
-    	System.out.println("Total de pasajeros: " + totalPasajeros);
     	return totalPasajeros;
     }
     
     public double[] calcularMontoExpedite(int numAdulto, int numNino, double montoIda, double montoVuelta) {
-    	
     	double montoIdaNino=montoIda;
     	double montoVueltaNino=montoVuelta;
     	double totales[] = new double[2];
@@ -378,40 +357,12 @@ public class GeneralUtil {
     	}else {
     		montoVueltaNino=(montoVuelta)/2;
     	}
-//    	System.out.println("-" +montoIda +"-" +numAdulto +"-" +montoIdaNino +"-" +numNino );
     	totales[0]= montoIda*numAdulto + montoIdaNino*numNino;
     	totales[1]= montoVuelta*numAdulto + montoVueltaNino*numNino;
     	return totales;
-    	
     }
-
-	public double[] obtenerMontosExpedite(WebDriver driver) {
-		
-		//*[@src='/ecommerce/www/img/carrito.png'] /following :: div[2]//*[contains(text(),'Total: ')]
-		
-			int columnaClic = 0;
-	        String resultado = "";
-	        int contador = 0;
-	        double[] montos = new double[2];
-	        try {
-	            List<WebElement> elements = driver.findElements(By.xpath("//*[@src='/ecommerce/www/img/carrito.png'] /following :: div[2]//*[contains(text(),'Total: ')]"));
-	            for (WebElement row : elements) {
-	            	
-	            	System.out.println("Monto " + contador + " " + row.getText().replace("\n", "").substring(14,19));
-	            	montos[contador]= Double.parseDouble(row.getText().replace("\n", "").substring(14,19));
-	            	contador++;
-	            }
-	        } catch (Exception e) {
-	            System.out.println(e.getMessage());
-	            Assert.fail("Excepcion en la tabla de resultado de busquedas: "  );
-	        }
-	        
-	        return montos;
-	        
-	    }
-		
-		
-	}
+	
+}
 
     
     
