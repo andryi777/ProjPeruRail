@@ -40,5 +40,66 @@ public class ConstantesUtil {
 	public static String codigoSeguridad = "741";
 	public static String nombreTarjeta = "Juan Perez";
 
-//	public static int contadorPasajero = 1;
+
+
+	/*******************************
+	 * Obtener nombre de mes por nro de Mes
+	 ******************************/
+	
+	public static String mesAbreviado = "";
+	public static String mesCompleto = "";
+	
+	public static void setNombreMes(String nroMes) {
+		switch (nroMes) {
+            case "01":
+            	mesAbreviado="Jan";
+            	mesCompleto="January";
+            	break;
+            case "02":
+            	mesAbreviado="Feb";
+            	mesCompleto="February";
+                break;
+            case "03":
+            	mesAbreviado="Mar";
+            	mesCompleto="March";
+                break;
+            case "04":
+            	mesAbreviado="Apr";
+            	mesCompleto="April";
+                break;
+            case "05":
+            	mesAbreviado="May";
+            	mesCompleto="May";
+                break;
+            case "06":
+            	mesAbreviado="Jun";
+            	mesCompleto="June";
+                break;
+            case "07":
+            	mesAbreviado="Jul";
+            	mesCompleto="July";
+                break;
+            case "08":
+            	mesAbreviado="Aug";
+            	mesCompleto="August";
+                break;
+            case "09":
+            	mesAbreviado="Sep";
+            	mesCompleto="September";
+                break;
+            case "10":
+            	mesAbreviado="Oct";
+            	mesCompleto="October";
+                break;
+            case "11":
+            	mesAbreviado="Nov";
+            	mesCompleto="November";
+                break;
+            case "12":
+            	mesAbreviado="Dec";
+            	mesCompleto="December";
+                break;
+        }
+	}
+	
 }

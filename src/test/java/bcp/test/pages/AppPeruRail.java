@@ -2,6 +2,7 @@ package bcp.test.pages;
 
 import java.util.concurrent.TimeUnit;
 
+import bcp.test.util.ConstantesUtil;
 import bcp.test.util.PageObjectUtil;
 import bcp.test.xpath.XPathHomePeruRail;
 import net.serenitybdd.core.Serenity;
@@ -47,13 +48,15 @@ public class AppPeruRail extends PageObject {
 
 	public void ingresarFechaSalida(String fechaSalida) {
 	   	pageObjectUtil.seleniumClick(getDriver(), xpathHomePeruRail.txtFechaSalida, 0);
-	   	pageObjectUtil.seleccionarDatepicker(getDriver(), xpathHomePeruRail.dtpFecha, fechaSalida);
+	   	ConstantesUtil.setNombreMes(fechaSalida.split("-")[1]);
+	   	pageObjectUtil.seleccionarDatepicker(getDriver(), xpathHomePeruRail.dtpFecha, ConstantesUtil.mesCompleto);
 	   	pageObjectUtil.seleniumClick(getDriver(), xpathHomePeruRail.lblFechaDia(fechaSalida), 0);
 	}
 
 	public void ingresarFechaRetorno(String fechaRetorno) {
     	pageObjectUtil.seleniumClick(getDriver(), xpathHomePeruRail.txtFechaRetorno, 0);
-    	pageObjectUtil.seleccionarDatepicker(getDriver(), xpathHomePeruRail.dtpFecha, fechaRetorno);
+    	ConstantesUtil.setNombreMes(fechaRetorno);
+    	pageObjectUtil.seleccionarDatepicker(getDriver(), xpathHomePeruRail.dtpFecha, ConstantesUtil.mesCompleto);
 	   	pageObjectUtil.seleniumClick(getDriver(), xpathHomePeruRail.lblFechaDia(fechaRetorno), 0);
 	}
 

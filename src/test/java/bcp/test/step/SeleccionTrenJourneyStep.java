@@ -17,11 +17,11 @@ public class SeleccionTrenJourneyStep {
 
 		appTrenExpedition.seleccionarResumenCompra();
 		
-		if(trenSalida.compareTo("NA")!=0) {
+		if(trenSalida.compareTo("No Aplica")!=0) {
 			montoIda = appTrenExpedition.seleccionarTrainSalida(trenSalida);
 		}
 		
-		if(trenRetorno.compareTo("NA")!=0) {
+		if(trenRetorno.compareTo("No Aplica")!=0) {
 			montoVuelta = appTrenExpedition.seleccionarTrainRegreso(trenRetorno);
 		}
 		
