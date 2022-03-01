@@ -124,8 +124,15 @@ public class bookingDefinition extends VariablesUtil{
 	@Then("^debe mostrarse mensaje de error \"([^\"]*)\"$")
 	public void debe_mostrarse_mensaje_de_error(String mensajeErrorEsperado) {
     	String mensajeErrorObtenido = consultoTicketStep.getMensajeNroMaxPasajeros();
-    	System.out.println(" :" + mensajeErrorObtenido);
+    	System.out.println("mensajeErrorObtenido :" + mensajeErrorObtenido);
     	Assert.assertEquals(mensajeErrorObtenido.trim(), mensajeErrorEsperado.toUpperCase().trim());
+	}
+	
+	@Then("^debe mostrarse mensaje de error en Cabina Belmond \"([^\"]*)\"$")
+	public void debe_mostrarse_mensaje_de_error_en_Cabina_Belmond(String mensajeErrorEsperado) {
+    	String mensajeErrorObtenido = seleccionCabinaBelmondStep.getMensajeMin1Adulto();
+    	System.out.println("mensajeErrorObtenido :" + mensajeErrorObtenido);
+    	Assert.assertEquals(mensajeErrorObtenido.trim(), mensajeErrorEsperado.trim());
 	}
 
 }

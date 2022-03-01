@@ -1,6 +1,6 @@
 package bcp.test.pages;
 
-import org.openqa.selenium.support.ui.WebDriverWait;
+import javax.swing.JOptionPane;
 
 import bcp.test.util.PageObjectUtil;
 import bcp.test.xpath.XpathCabinasBelmond;
@@ -9,7 +9,6 @@ import net.serenitybdd.core.pages.PageObject;
 
 public class AppCabinasBelmond extends PageObject {	
 
-	private WebDriverWait wdw = null;
 	private long wdwTimeOut = 300L;
 	
     // xpath
@@ -27,6 +26,7 @@ public class AppCabinasBelmond extends PageObject {
 	}
 	
 	public void seleccionarNroPasajeros(String auxTipoCabina, int nroCabinas, String nroPasajeros, int tipoPasajero) {
+		pageObjectUtil.seleniumClick(getDriver(), xpathCabinasBelmond.cboNroCabinaAdultoNino(auxTipoCabina, nroCabinas, tipoPasajero), 0);
 		pageObjectUtil.seleniumSelectCombo(getDriver(), xpathCabinasBelmond.cboNroCabinaAdultoNino(auxTipoCabina, nroCabinas, tipoPasajero), nroPasajeros);
 		Serenity.takeScreenshot();
 	}
@@ -34,6 +34,11 @@ public class AppCabinasBelmond extends PageObject {
 	public void seleccionarContinuar() {
 		pageObjectUtil.seleniumClick(getDriver(), xpathCabinasBelmond.btnContinuar,0);
 		Serenity.takeScreenshot();
+	}
+
+	public String mensajeValidacion1Adulto() {
+		String mensajeObtenido = pageObjectUtil.seleniumGetText(getDriver(), xpathCabinasBelmond.lblMin1Adulto,0);
+		return mensajeObtenido;
 	}
 
 }

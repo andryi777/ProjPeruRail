@@ -37,5 +37,8 @@ public class XpathCabinasBelmond {
     	return selNumPasajeros;
     }
     
-    public final String btnContinuar="//input[@value='Continue']";
+    public final String btnContinuar ="//input[@value='Continue']";
+    
+    public final String lblMin1Adulto = "//*[@id='sb-player']/div";
+
 }
