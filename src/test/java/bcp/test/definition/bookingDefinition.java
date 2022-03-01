@@ -107,7 +107,10 @@ public class bookingDefinition extends VariablesUtil{
 
 	@Then("^valido el monto pagado por servicio Expedition$")
 	public void valido_el_monto_pagado_por_servicio_Expedition() {
-		realizoCompraStep.compararMonto(v_nroAdultosExpedition, v_nroNinosExpedition);
+		double montoEsperado[] = generalUtil.calcularMontoExpedition(v_nroAdultosExpedition, v_nroNinosExpedition, SeleccionTrenJourneyStep.montoIda, SeleccionTrenJourneyStep.montoVuelta);
+		double montoMostrado[] = realizoCompraStep.getSubtotalesMostrados(v_nroAdultosExpedition, v_nroNinosExpedition);
+		Assert.assertEquals(montoEsperado[0], montoMostrado[0]);
+		Assert.assertEquals(montoEsperado[1], montoMostrado[1]);
 	}
 	
 	@Given("^selecciono fecha salida \"([^\"]*)\" y fecha retorno \"([^\"]*)\"$")

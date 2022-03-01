@@ -121,15 +121,11 @@ public class PageObjectUtil {
 			return null;
 	}
 
-	public void seleccionarDatepicker(WebDriver driver, String xpathFecha, String fecha) {
-		String mes = fecha.split("-")[1];
-		mes = GeneralUtil.obtenerMes(mes);
-
+	public void seleccionarDatepicker(WebDriver driver, String xpathFecha, String nombreMes) {
 		String mesMostrado = seleniumGetText(driver, xpathFecha, 0);
 
-		while (mesMostrado.compareTo(mes) != 0) {
+		while (mesMostrado.compareTo(nombreMes) != 0) {		
 			seleniumClick(driver, "//span[text()='Next']", 0);
-			sleep(1);
 			mesMostrado = seleniumGetText(driver, xpathFecha, 0);
 		}
 	}

@@ -92,18 +92,18 @@ public class AppPago extends PageObject {
 		pageObjectUtil.seleniumClick(getDriver(), xpathPago.btnCarritoCompra, 0);
 		
 		int contador = 0;
-        double[] montos = new double[2];
+        double[] montosSubtotales = new double[2];
         try {
-            List<WebElement> elements = getDriver().findElements(By.xpath("//*[@src='/ecommerce/www/img/carrito.png'] /following :: div[2]//*[contains(text(),'Total: ')]"));
-            for (WebElement row : elements) {
-            	montos[contador]= Double.parseDouble(row.getText().replace("\n", "").substring(14,19));
+            List<WebElement> lstSubtotales = getDriver().findElements(By.xpath("//*[@src='/ecommerce/www/img/carrito.png'] /following :: div[2]//*[contains(text(),'Total: ')]"));
+            for (WebElement row : lstSubtotales) {
+            	montosSubtotales[contador]= Double.parseDouble(row.getText().replace("\n", "").substring(14,19));
             	contador++;
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 		
-		return montos;
+		return montosSubtotales;
 	}
 
 }

@@ -23,16 +23,16 @@ public class AppTrenExpedition  extends PageObject {
 	}
     
     public double seleccionarTrainSalida(String tren) {
-		pageObjectUtil.seleniumClick(getDriver(), xpathTrenExpedition.getXpathTipoTrenSalida(tren),0);
+		pageObjectUtil.seleniumClick(getDriver(), xpathTrenExpedition.xpathTipoTrenSalida(tren),0);
 		Serenity.takeScreenshot();
-		String montoIndividual=pageObjectUtil.seleniumGetText(getDriver(), xpathTrenExpedition.getXpathMontoIndividualSalida(tren),0);
+		String montoIndividual=pageObjectUtil.seleniumGetText(getDriver(), xpathTrenExpedition.xpathMontoIndividualSalida(tren),0);
 		return Double.parseDouble(montoIndividual.substring(4,10));
 	}
 	
 	public double seleccionarTrainRegreso(String tren) {
-		pageObjectUtil.seleniumClick(getDriver(), xpathTrenExpedition.getXpathTipoTrenRegreso(tren),0);
+		pageObjectUtil.seleniumClick(getDriver(), xpathTrenExpedition.xpathTipoTrenRetorno(tren),0);
 		Serenity.takeScreenshot();
-		String montoIndividual=pageObjectUtil.seleniumGetText(getDriver(), xpathTrenExpedition.getXpathMontoIndividualRegreso(tren),0);
+		String montoIndividual=pageObjectUtil.seleniumGetText(getDriver(), xpathTrenExpedition.xpathMontoIndividualRetorno(tren),0);
 		return Double.parseDouble(montoIndividual.substring(4,10));
 	}
 

@@ -180,112 +180,6 @@ public class GeneralUtil {
         return monto;
     }
 
-    public static String obtenerMes(String mes) {
-
-        String mesString = "";
-        switch (mes) {
-            case "01":
-                mesString="January";
-                break;
-            case "02":
-                mesString="February";
-                break;
-            case "03":
-                mesString="March";
-                break;
-            case "04":
-                mesString="April";
-                break;
-            case "05":
-                mesString="May";
-                break;
-            case "06":
-                mesString="June";
-                break;
-            case "07":
-                mesString="July";
-                break;
-            case "08":
-                mesString="August";
-                break;
-            case "09":
-                mesString="September";
-                break;
-            case "10":
-                mesString="October";
-                break;
-            case "11":
-                mesString="November";
-                break;
-            case "12":
-                mesString="December";
-                break;
-        }
-
-        return mesString;
-    }
-    
-    public static String obtenerMesAbreviado(String mes) {
-
-        String mesString = "";
-        switch (mes) {
-            case "01":
-                mesString="Jan";
-                break;
-            case "02":
-                mesString="Feb";
-                break;
-            case "03":
-                mesString="Mar";
-                break;
-            case "04":
-                mesString="Apr";
-                break;
-            case "05":
-                mesString="May";
-                break;
-            case "06":
-                mesString="Jun";
-                break;
-            case "07":
-                mesString="Jul";
-                break;
-            case "08":
-                mesString="Aug";
-                break;
-            case "09":
-                mesString="Sep";
-                break;
-            case "10":
-                mesString="Oct";
-                break;
-            case "11":
-                mesString="Nov";
-                break;
-            case "12":
-                mesString="Dec";
-                break;
-        }
-
-        return mesString;
-    }
-    
-    public static boolean esPar(int numero) {
-        if (numero % 2 == 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    public static boolean esParDouble(double numero) {
-        if (numero % 2 == 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
     public double calcularMontoTarifarioBelmond(String tipoCabina, int nroPasajero) {
     	double montoTotal=0;
     	
@@ -341,24 +235,14 @@ public class GeneralUtil {
     	return totalPasajeros;
     }
     
-    public double[] calcularMontoExpedite(int numAdulto, int numNino, double montoIda, double montoVuelta) {
-    	double montoIdaNino=montoIda;
-    	double montoVueltaNino=montoVuelta;
+    public double[] calcularMontoExpedition(int nroAdultos, int nroNinos, double montoIda, double montoVuelta) {
+    	double montoIdaNino = Math.round(montoIda/2);
+    	double montoVueltaNino = Math.round(montoVuelta/2);;
     	double totales[] = new double[2];
+    	 
+    	totales[0]= montoIda*nroAdultos + montoIdaNino*nroNinos;
+    	totales[1]= montoVuelta*nroAdultos + montoVueltaNino*nroNinos;
     	
-    	if(esParDouble(montoIda)==false) {
-    		montoIdaNino=(montoIda+1)/2;
-    	}else {
-    		montoIdaNino=(montoIda)/2;
-    	}
-    	
-    	if(esParDouble(montoVuelta)==false) {
-    		montoVueltaNino=(montoVuelta+1)/2;
-    	}else {
-    		montoVueltaNino=(montoVuelta)/2;
-    	}
-    	totales[0]= montoIda*numAdulto + montoIdaNino*numNino;
-    	totales[1]= montoVuelta*numAdulto + montoVueltaNino*numNino;
     	return totales;
     }
 	

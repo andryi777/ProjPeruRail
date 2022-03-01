@@ -74,8 +74,10 @@ public class AppDatosPasajeros extends PageObject {
 	
 	void seleccionarFechaCalendario(String fecha) {
 		String[] calendario = fecha.split("-");		
+		ConstantesUtil.setNombreMes(calendario[1]);
+		
 		pageObjectUtil.seleniumSelectCombo(getDriver(), xpathDatosPersonales.cboAnioNacimiento, calendario[2]);
-    	pageObjectUtil.seleniumSelectCombo(getDriver(), xpathDatosPersonales.cboMesNacimiento, generalUtil.obtenerMesAbreviado(calendario[1]));
+    	pageObjectUtil.seleniumSelectCombo(getDriver(), xpathDatosPersonales.cboMesNacimiento, ConstantesUtil.mesAbreviado);
     	pageObjectUtil.seleniumClick(getDriver(), xpathDatosPersonales.lblDia(Integer.parseInt(calendario[0])), 0);    	
 	}
 
@@ -89,7 +91,7 @@ public class AppDatosPasajeros extends PageObject {
     		cont_Adultos++;
     		
     		String anoNacAdulto=ConstantesUtil.fecNacimientoAdulto.split("-")[2];
-	    	String mesNacAdulto=generalUtil.obtenerMes(ConstantesUtil.fecNacimientoAdulto.split("-")[1]);
+	    	ConstantesUtil.setNombreMes(ConstantesUtil.fecNacimientoNino.split("-")[1]);
 	    	String diaNacAdulto=ConstantesUtil.fecNacimientoAdulto.split("-")[0];
 	    	
 	    	pageObjectUtil.seleniumEscribir(getDriver(), xpathDatosPersonales.txtPrimerNombreExp(nroPasajero), 0, ConstantesUtil.nomAdulto);
@@ -97,7 +99,7 @@ public class AppDatosPasajeros extends PageObject {
 	    	pageObjectUtil.sleep(2);
 	    	pageObjectUtil.seleniumClick(getDriver(), xpathDatosPersonales.txtFechaNacimientoExp(nroPasajero), 0);
 	    	pageObjectUtil.seleniumSelectCombo(getDriver(), xpathDatosPersonales.lstAnoNacExp, anoNacAdulto);
-	     	pageObjectUtil.seleniumSelectCombo(getDriver(), xpathDatosPersonales.lstMesNacExp, mesNacAdulto.toUpperCase());
+	     	pageObjectUtil.seleniumSelectCombo(getDriver(), xpathDatosPersonales.lstMesNacExp, ConstantesUtil.mesCompleto.toUpperCase());
 	       	pageObjectUtil.seleniumClick(getDriver(), xpathDatosPersonales.txtDiaNacimientoExp(Integer.parseInt(diaNacAdulto)),0);
 	    	pageObjectUtil.seleniumSelectCombo(getDriver(), xpathDatosPersonales.cboNacionalidadExp(nroPasajero),ConstantesUtil.nacionalidadAdulto);
 	    	pageObjectUtil.seleniumSelectCombo(getDriver(), xpathDatosPersonales.cboTipoDocumentoExp(nroPasajero),ConstantesUtil.tipoDocumentoAdulto); 
@@ -109,14 +111,16 @@ public class AppDatosPasajeros extends PageObject {
 	   	
     	}else {
     		String anoNacNino=ConstantesUtil.fecNacimientoNino.split("-")[2];
-	    	String mesNacNino=generalUtil.obtenerMes(ConstantesUtil.fecNacimientoNino.split("-")[1]);
+	    	
+	    	ConstantesUtil.setNombreMes(ConstantesUtil.fecNacimientoNino.split("-")[1]);
+	    	
 	    	String diaNacNino=ConstantesUtil.fecNacimientoNino.split("-")[0];
 	    	pageObjectUtil.seleniumEscribir(getDriver(), xpathDatosPersonales.txtPrimerNombreExp(nroPasajero), 0, ConstantesUtil.nomNino);
 	    	pageObjectUtil.seleniumEscribir(getDriver(), xpathDatosPersonales.txtApellidoExp(nroPasajero), 0, ConstantesUtil.apeNino);
 	    	pageObjectUtil.sleep(2);
 	    	pageObjectUtil.seleniumClick(getDriver(), xpathDatosPersonales.txtFechaNacimientoExp(nroPasajero), 0);
 	     	pageObjectUtil.seleniumSelectCombo(getDriver(), xpathDatosPersonales.lstAnoNacExp, anoNacNino);     	
-	     	pageObjectUtil.seleniumSelectCombo(getDriver(), xpathDatosPersonales.lstMesNacExp, mesNacNino.toUpperCase());
+	     	pageObjectUtil.seleniumSelectCombo(getDriver(), xpathDatosPersonales.lstMesNacExp, ConstantesUtil.mesCompleto.toUpperCase());
 	     	pageObjectUtil.seleniumClick(getDriver(), xpathDatosPersonales.txtDiaNacimientoExp(Integer.parseInt(diaNacNino)),0);
 	    	pageObjectUtil.seleniumSelectCombo(getDriver(), xpathDatosPersonales.cboNacionalidadExp(nroPasajero),ConstantesUtil.nacionalidadNino);
 	    	pageObjectUtil.seleniumSelectCombo(getDriver(), xpathDatosPersonales.cboTipoDocumentoExp(nroPasajero),ConstantesUtil.tipoDocumentoNino); 

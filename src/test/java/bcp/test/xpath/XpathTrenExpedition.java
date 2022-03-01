@@ -24,26 +24,24 @@ public class XpathTrenExpedition {
 		throw new CloneNotSupportedException();
 	}
 
-	public String getXpathTipoTrenSalida(String tren) {
-		final String chkMedioPago = "//div[@id='viajeIdaBimodal']//div[contains(text(),'" + tren + "')]//following::div[2]";
-		System.out.println("xpath: " + chkMedioPago);
-		return chkMedioPago;
+	public String xpathTipoTrenSalida(String tren) {
+		final String xpathTrenSalida = "//div[@id='viajeIdaBimodal']//div[contains(text(),'" + tren + "')]//following::div[2]";
+		return xpathTrenSalida;
 	}
 
-	public String getXpathTipoTrenRegreso(String tren) {
-		final String chkMedioPago = "//div[@id='viajeRegresoBimodal']//div[contains(text(),'" + tren + "')]//following::div[2]";
-		System.out.println("xpath: " + chkMedioPago);
-		return chkMedioPago;
+	public String xpathTipoTrenRetorno(String tren) {
+		final String xpathTrenRetorno = "//div[@id='viajeRegresoBimodal']//div[contains(text(),'" + tren + "')]//following::div[2]";
+		return xpathTrenRetorno;
 	}
 
-	public String getXpathMontoIndividualSalida(String tren) {
-		final String lblMontoIndividual = "//div[@id='viajeIdaBimodal']//div[contains(text(),'" + tren + "')]//following :: div[4]";
-		return lblMontoIndividual;
+	public String xpathMontoIndividualSalida(String tren) {
+		final String lblMontoIndividualSalida = "//div[@id='viajeIdaBimodal']//div[contains(text(),'" + tren + "')]//following :: div[4]";
+		return lblMontoIndividualSalida;
 	}
 
-	public String getXpathMontoIndividualRegreso(String tren) {
-		final String lblMontoIndividual = "//div[@id='viajeRegresoBimodal']//div[contains(text(),'" + tren + "')]//following :: div[5]";
-		return lblMontoIndividual;
+	public String xpathMontoIndividualRetorno(String tren) {
+		final String lblMontoIndividualRetorno = "//div[@id='viajeRegresoBimodal']//div[contains(text(),'" + tren + "')]//following :: div[5]";
+		return lblMontoIndividualRetorno;
 	}
 
 	public final String btnCerrar = "//*[@title='Close']";
