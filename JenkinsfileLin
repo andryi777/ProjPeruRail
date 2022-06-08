@@ -26,6 +26,7 @@ pipeline {
         	steps {
         		script {
         			try {
+                        sh ("chmod +x ${env.WORKSPACE}/src/test/resources/driver/chromedriver")
         				sh ("mvn test -Dcucumber.options=\"src/test/resources/features/ --tags \'${ESCENARIO}\' --plugin json:target/site/result.json --glue bcp\"")
         				sh ("mvn serenity:aggregate")
         				echo 'Ejecucion de pruebas sin errores...'
